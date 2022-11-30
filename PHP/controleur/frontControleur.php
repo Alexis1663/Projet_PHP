@@ -3,7 +3,7 @@
 
 //require_once ('controleur/userControleur.php');
 //require_once ('controleur/adminControleur.php';
-require_once ('controleur/accueilControleur.php');
+require_once('controleur/accueilControleur.php');
 
 
 require_once ('config/config.php');
@@ -27,8 +27,7 @@ class FrontControleur {
   public function frontRequest(){
     global $vue;
 
-    $articles = $this->ctrlAccueil->findAllArticles();
-    require_once($vue['accueil']);
+    $lesArticles = $this->ctrlAccueil->findAllArticles();
   }
 
   /* Affiche une erreur

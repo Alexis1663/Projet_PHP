@@ -5,18 +5,25 @@ require_once ('modele/articleGateway.php');
 
 class AccueilControleur {
 
-  private $articleG;
+  //private $articleG;
   private $con;
 
   public function __construct($dns, $user, $password) {
     $this->con = new Connection($dns, $user, $password);
-    $this->articleG = new ArticleGateway($this->con);
+    //$this->articleG = new ArticleGateway($this->con);
 
-    /*try{
-      $action=$_GET['action'];
+    $dVueErreur=array();
+    try{
+
+      if(isset($_GET['action'])){
+        $action=$_GET['action'];
+      }
+      else{
+        $action=NULL;
+      }
       switch($action){
         case NULL :
-          $this->findAllA();
+          $this->findAllArticles($dns, $user, $password);
           break;
         default :
           $dVueErreur[]="Erreur d'appel php";
@@ -26,15 +33,19 @@ class AccueilControleur {
     catch (Exception $e){
       $dVueErreur[]="Erreur innatendue";
       require($vue['erreur']);
-    }*/
+    }
     
   } 
 
-  public function findAllArticles()
+  public function findAllArticles($dns, $user, $password)
   {
-    $lesArticles=$this->articleG->findAllA();
-    return $lesArticles;
+    global $vue;
+    $this->con = new Connection($dns, $user, $password); 
+    $articleG=new ArticleGateway($this->con);
+    $lesArticles=$articleG->findAllA();
+    require($vue['accueil']);
   }
+
 }
 
 ?>
