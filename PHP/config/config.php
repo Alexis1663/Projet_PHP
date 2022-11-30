@@ -6,8 +6,6 @@ $rep=__DIR__.'/../';
 
 //BDD
 
-$host = '000';
-$dbname = 'mysql:host=londres.uca.local;dbname=dblobroda';
 $user = "lobroda";
 $password = "achanger";
 $dns = "mysql:host=londres.uca.local;dbname=dblobroda";
@@ -15,8 +13,10 @@ $dns = "mysql:host=londres.uca.local;dbname=dblobroda";
 
 //Vues
 
-$vues['erreur']='vues/erreur.php';
-$vues['accueil']='vues/accueil.php';
+$vue['erreur']='vue/html/erreur.php';
+$vue['accueil']='vue/html/accueil.php';
+$vue['inscription']='vue/html/inscription.php';
+$vue['connexion']='vue/html/connexion.php';
 
 
 ?>

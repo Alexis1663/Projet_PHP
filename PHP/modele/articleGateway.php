@@ -23,7 +23,7 @@ class ArticleGateway{
 	 *
 	 * @return array of article
 	**/
-	public function findAllArticle():array{
+	public function findAllA():array{
 		$queryfindall = "SELECT * FROM Article";
 		$this->con->executeQuery($queryfindall);
 		$results=$this->con->getResults();
@@ -37,7 +37,7 @@ class ArticleGateway{
 	 *
 	 * @return array of article
 	**/
-	public function findArticle(DateTime $date):array{
+	public function findA(DateTime $date):array{
 		$queryfind = "SELECT * FROM Article WHERE date=:date";
 		$this->con->executeQuery($queryfind, array(':date'=>array($date,PDO::PARAM_STR) ));
 		$results=$this->con->getResults();
@@ -58,7 +58,7 @@ class ArticleGateway{
 	 * 
 	 * @return void
 	**/
-	public function addArticle(int $id, DateTime $date, string $titre, string $contenu, string $image, int $nmbCommentaires=0, Admin $redacteur){
+	public function addA(int $id, DateTime $date, string $titre, string $contenu, string $image, int $nmbCommentaires=0, Admin $redacteur){
 		$queryadd = "INSERT INTO Article VALUES (:id,:date,:titre,:contenu,:image,:nmbCommentaires,:redacteur)";
 		$this->con->executeQuery($queryadd, array(':id'=>array($id,PDO::PARAM_STR), ':date'=>array($date,PDO::PARAM_STR), 'titre'=>array($titre,PDO::PARAM_STR), 'contenu'=>array($contenu,PDO::PARAM_STR), 'image'=>array($image,PDO::PARAM_STR), 'nmbCommentaires'=>array($nmbCommentaires,PDO::PARAM_STR), 'redacteur'=>array($redacteur,PDO::PARAM_STR) ));
 	}
@@ -71,7 +71,7 @@ class ArticleGateway{
 	 *
 	 * @return void
 	**/
-	public function updateArticle(int $id, string $newContenu){
+	public function updateA(int $id, string $newContenu){
 		$queryupdate = "UPDATE Article SET contenu=:newContenu WHERE id=:id";
 		$this->con->executeQuery($queryupdate, array(':id'=>array($id,PDO::PARAM_STR), array(':contenu'=>array($newContenu)) ));		
 	}
@@ -83,7 +83,7 @@ class ArticleGateway{
 	 *
 	 * @return void
 	**/
-	public function deleteArticle(int $id){
+	public function deleteA(int $id){
 		$querydelete = "DELETE FROM Article WHERE id=:id";
 		$this->con->executeQuery($querydelete, array(':id'=>array($id,PDO::PARAM_STR) ));
 	}
@@ -95,7 +95,7 @@ class ArticleGateway{
 	 *
 	 * @return int : number obtained
 	**/
-	public function countCommentairesArticle(int $id){
+	public function countCommentairesA(int $id){
 		
 	}
 

@@ -10,6 +10,24 @@ Autoload::charger();
 require_once(__DIR__.'/controleur/frontControleur.php');
 
 $cont = new FrontControleur();
-$cont->frontRequest();
+//$cont->frontRequest();
+
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+    switch($page){
+        case "accueil":
+            require($vue['accueil']);
+            break;
+        case "inscription":
+            require($vue['inscription']);
+            break;
+        case "connexion":
+            require($vue['connexion']);
+            break;
+    }
+}
+else{
+    require($vue['accueil']);
+}
 
 ?> 

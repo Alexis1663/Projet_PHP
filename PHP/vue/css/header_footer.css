@@ -81,11 +81,4 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Code body commun à toutes les pages */
-
-body{
-    margin: 0;
-    padding: 0;
-}
+}   

@@ -29,7 +29,7 @@ class AdminGateway{
 	 * 
 	 * @return void
 	**/
-	public function addUser(string $pseudo, string $nom, string $prenom, string $motDePasse, int $nmbCommentairesEcrits){
+	public function addU(string $pseudo, string $nom, string $prenom, string $motDePasse, int $nmbCommentairesEcrits){
 		$queryadd = "INSERT INTO User VALUES (:pseudo,:nom,:prenom,:motDePasse,:nmbCommentairesEcrits)";
 		$this->con->executeQuery($queryadd, array(':pseudo'=>array($pseudo,PDO::PARAM_STR), ':nom'=>array($nom,PDO::PARAM_STR), 'prenom'=>array($prenom,PDO::PARAM_STR), 'motDePasse'=>array($motDePasse,PDO::PARAM_STR), 'nmbCommentairesEcrits'=>array($nmbCommentairesEcrits,PDO::PARAM_STR) ));
 	}
@@ -41,7 +41,7 @@ class AdminGateway{
 	 *
 	 * @return void
 	**/
-	public function deleteUser(int $pseudo){
+	public function deleteU(int $pseudo){
 		$querydelete = "DELETE FROM User WHERE pseudo=:pseudo";
 		$this->con->executeQuery($querydelete, array(':pseudo'=>array($pseudo,PDO::PARAM_STR) ));
 	}
