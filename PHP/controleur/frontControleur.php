@@ -3,40 +3,58 @@
 
 //require_once ('controleur/userControleur.php');
 //require_once ('controleur/adminControleur.php';
-require_once ('controleur/accueilControleur.php');
+require_once 'controleur/accueilControleur.php';
 
 
-require_once ('config/config.php');
+require_once('config/config.php');
 require_once('modele/connection.php');
 
-class FrontControleur {
+class FrontControleur
+{
 
-  private $ctrlAccueil;
-  //private $ctrlAdmin;
-  //private $ctrlUser;
+    private $ctrlAccueil;
+    //private $ctrlAdmin;
+    //private $ctrlUser;
 
-  public function __construct() {
+    public function __construct()
+    {
+        try {
+            global $user, $password, $dns, $vue;
+            $this->ctrlAccueil = new AccueilControleur($dns, $user, $password);
 
-    global $user, $password, $dns;
-    $this->ctrlAccueil = new AccueilControleur($dns, $user, $password);
-    //$this->ctrlAdmin = new AdminControleur();
-    //$this->ctrlUser = new UserControleur();
-  }
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = NULL;
+            }
 
-  // Traite une requête entrante
-  public function frontRequest(){
-    global $vue;
+            switch ($page) {
+                case NULL:
+                    require($vue['accueil']);
+                    break;
+                case "inscription":
+                    require($vue['inscription']);
+                    break;
+                case "connexion":
+                    require($vue['connexion']);
+                    break;
+            }
+        } catch (EXCEPTION $e) {
+        }
+    }
 
-    $articles = $this->ctrlAccueil->findAllArticles();
-    require_once($vue['accueil']);
-  }
+    // Traite une requête entrante
+    public function frontRequest()
+    {
+        global $vue;
 
-  /* Affiche une erreur
+        $articles = $this->ctrlAccueil->findAllArticles();
+        require_once($vue['accueil']);
+    }
+
+    /* Affiche une erreur
   private function erreur($msgErreur) {
     $vue = new Vue("Erreur");
     $vue->generer(array('msgErreur' => $msgErreur));
   }*/
-
 }
-
-?>
