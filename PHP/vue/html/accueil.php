@@ -6,6 +6,7 @@ include_once('controleur/frontControleur.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@ include_once('controleur/frontControleur.php');
     <link rel="stylesheet" href="./vue/css/header_footer.css">
     <link rel="stylesheet" href="./vue/css/accueil.css">
 </head>
+
 <body>
 
     <!-- Début de l'entête de page -->
@@ -23,11 +25,11 @@ include_once('controleur/frontControleur.php');
         <nav>
 
             <div class="logo">
-                <a href="index.php?page=accueil"><img src="./vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
+                <a href="index.php?page=accueil"><img src="vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
             </div>
 
-			<div class="titre">
-				<h1>COURNON TT NEWS</h1>
+            <div class="titre">
+                <h1>COURNON TT NEWS</h1>
                 <div class="sous-titre">
                     <div class="menu-recherche">
                         <input class="recherche" type="text" placeholder="Rechercher...">
@@ -35,7 +37,7 @@ include_once('controleur/frontControleur.php');
                     </div>
                     <p>ARTICLES POSTÉS</p>
                 </div>
-			</div>
+            </div>
 
             <div class="log">
                 <a href="index.php?page=inscription"><button class="button">S'inscrire</button></a>
@@ -51,9 +53,9 @@ include_once('controleur/frontControleur.php');
     <section>
 
         <div class="container_article">
-            <?php foreach($lesArticles as $req){ ?>
+            <?php foreach ($lesArticles as $req) { ?>
 
-                <form action="index.php?page=article" method="POST" class="form">
+                <form action="article.php" method="POST" class="form">
                     <button type="submit" class="button_detail" name="form_detail">
                         <div class="fromage">
                             <div class="article">
@@ -77,11 +79,12 @@ include_once('controleur/frontControleur.php');
 
     <footer>
 
-		<div class="footer">
-			<p>CL COURNON TT</p>
-			<p>exemple@exemple.fr</p>
-		</div>
+        <div class="footer">
+            <p>CL COURNON TT</p>
+            <p>exemple@exemple.fr</p>
+        </div>
 
     </footer>
 </body>
+
 </html>

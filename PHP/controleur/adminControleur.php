@@ -15,32 +15,6 @@ class AdminControleur {
     $this->articleG = new ArticleGateway();
     $this->adminG = new AdminGateway();
     $this->article = new Article();
-
-    try{
-      $action=$_GET['action'];
-      switch($action){
-          case "AddArticle":
-              $this->addArticle();
-              break;
-          case "DeleteArticle":
-              $this->deleteArticle();
-              break;
-          case "AddUser":
-              $this->addUser();
-              break;
-          case "DeleteUser":
-              $this->deleteUser();
-              break;
-          default:
-              $dVueErreur[]="ERR : Appel PHP !";
-              require($vue['erreur']);
-      }
-    }
-    catch(Exception $e){
-      $dVueErreur[]="ERR : Erreur innatendue";
-      require($vue['erreur']);
-    }
-    exit(0);
   }
 
   // Ajouter un article au blog
