@@ -22,6 +22,7 @@ class FrontControleur
             global $user, $password, $dns, $vue;
             $this->ctrlAccueil = new AccueilControleur($dns, $user, $password);
 
+
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
             } else {
@@ -39,6 +40,7 @@ class FrontControleur
                     require($vue['connexion']);
                     break;
             }
+
         } catch (EXCEPTION $e) {
         }
     }
@@ -48,8 +50,12 @@ class FrontControleur
     {
         global $vue;
 
+
         $articles = $this->ctrlAccueil->findAllArticles();
         require_once($vue['accueil']);
+
+        $lesArticles = $this->ctrlAccueil->findAllArticles();
+
     }
 
     /* Affiche une erreur

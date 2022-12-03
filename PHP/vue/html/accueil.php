@@ -53,6 +53,7 @@ include_once('controleur/frontControleur.php');
     <section>
 
         <div class="container_article">
+
             <?php foreach ($lesArticles as $req) { ?>
 
                 <form action="article.php" method="POST" class="form">
@@ -71,6 +72,28 @@ include_once('controleur/frontControleur.php');
                 </form>
 
             <?php } ?>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Titre</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($lesArticles as $req) { ?>
+
+                        <tr>
+                            <td><?= $req['date'] ?></td>
+                            <td><?= $req['titre'] ?></td>
+                            <td><?= $req['image'] ?></td>
+                        </tr>
+
+                    <?php } ?>
+                </tbody>
+            </table>
+
         </div>
 
     </section>
