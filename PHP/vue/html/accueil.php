@@ -25,7 +25,7 @@ include_once('controleur/frontControleur.php');
         <nav>
 
             <div class="logo">
-                <a href="index.php?page=accueil"><img src="./vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
+                <a href="index.php?page=accueil"><img src="vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
             </div>
 
             <div class="titre">
@@ -53,6 +53,26 @@ include_once('controleur/frontControleur.php');
     <section>
 
         <div class="container_article">
+
+            <?php foreach ($lesArticles as $req) { ?>
+
+                <form action="article.php" method="POST" class="form">
+                    <button type="submit" class="button_detail" name="form_detail">
+                        <div class="fromage">
+                            <div class="article">
+                                <h1><?= $req['date'] ?></h1>
+                                <h1><?= $req['titre'] ?></h1>
+                            </div>
+                            <i class="fa-regular fa-star"></i>
+                            <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
+                            <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
+                            <?php echo '<img src="../img/' . $req['image'] . '" alt="Image de ' . $req['image'] . '">' ?>
+                        </div>
+                    </button>
+                </form>
+
+            <?php } ?>
+
             <table>
                 <thead>
                     <tr>
@@ -73,6 +93,7 @@ include_once('controleur/frontControleur.php');
                     <?php } ?>
                 </tbody>
             </table>
+
         </div>
 
     </section>
