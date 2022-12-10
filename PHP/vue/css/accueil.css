@@ -1,0 +1,34 @@
+/* Code */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+td{
+    border-collapse: collapse;
+    padding: 1em;
+    border: 1px solid black;
+    text-align: center;
+}
+
+th{
+    background-color: red;
+}
+
+table{
+    width: 100%;
+    margin: 15px;
+}
+
+.container_article{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2em;
+}
+
+#image{
+    width: 5em;
+    height: 5em;
+}
