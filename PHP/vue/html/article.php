@@ -47,15 +47,16 @@
     <section>
 
         <div class="titre">
-            <h1>TITRE TEST</h1>
+
+            <h1><?php $detailArticle['titre'] ?></h1>
         </div>
 
         <div class="image">
-            <img src="cbidbc.png" alt="Image test">
+            <img src="vue/img/<?php $detailArticle['image'] ?>" alt="Image test">
         </div>
 
         <div class="description">
-            <h3>Ceci est la description du test</h3>
+            <h3><?php $detailArticle['contenu'] ?></h3>
         </div>
 
     </section>

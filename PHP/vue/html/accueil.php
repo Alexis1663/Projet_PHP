@@ -54,32 +54,23 @@ include_once('controleur/frontControleur.php');
 
         <div class="container_article">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Titre</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($lesArticles as $req) { ?>
+            <?php foreach ($lesArticles as $req) { ?>
+                <form action="index.php?page=detail" method="GET">
 
-                        <tr>
+                    <button type="submit" name="button">
+                        <div class="article">
+                            <img id="image" src="vue/img/<?= $req['image'] ?>" alt="">
+                            <div class="infos">
+                                <p><?= $req['titre'] ?></p>
+                                <p><?= $req['date'] ?></p>
+                            </div>
+                            <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
+                            <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
+                        </div>
 
-                            <form action="article.php">
-                                <td><?= $req['date'] ?></td>
-                                <td><?= $req['titre'] ?></td>
-                                <td><img id="image" src="vue/img/<?= $req['image'] ?>" alt=""></td>
-                                <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
-                                <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
-                            </form>
+                    </button>
 
-                        </tr>
-
-                    <?php } ?>
-                </tbody>
-            </table>
+                <?php } ?>
 
         </div>
 

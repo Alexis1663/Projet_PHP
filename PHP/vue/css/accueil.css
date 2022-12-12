@@ -5,30 +5,32 @@ body{
     padding: 0;
 }
 
-
-td{
-    border-collapse: collapse;
-    padding: 1em;
-    border: 1px solid black;
-    text-align: center;
-}
-
-th{
-    background-color: red;
-}
-
-table{
-    width: 100%;
-    margin: 15px;
-}
-
 .container_article{
     display: flex;
     flex-wrap: nowrap;
-    padding: 2em;
 }
 
 #image{
-    width: 5em;
-    height: 5em;
+    width: 20%;
+    height: 20%;
+}
+
+.article{
+    display: flex;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+}
+
+.infos p{
+    margin: 0;
+    padding: 0;
+}
+
+form button{
+    width: 100%;
+    background-color: #fff;
+    border: none;
 }
