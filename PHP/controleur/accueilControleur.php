@@ -13,22 +13,24 @@ class AccueilControleur
     {
         global $vue;
         $this->con = new Connection($dns, $user, $password);
-        //$this->articleG = new ArticleGateway($this->con);
+        $this->articleG = new ArticleGateway($this->con);
 
         $dVueErreur = array();
         try {
             if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+                $page = $_REQUEST['page'];
             } else {
                 $page = NULL;
             }
 
             switch ($page) {
                 case NULL:
-                    $this->findAllArticles($dns, $user, $password);
+                    $lesArticles = $this->articleG->findAllA();
+                    require($vue['accueil']);
                     break;
                 case 'accueil':
-                    $this->findAllArticles($dns, $user, $password);
+                    $lesArticles = $this->articleG->findAllA();
+                    require($vue['accueil']);
                     break;
                 case "inscription":
                     require($vue['inscription']);
@@ -36,6 +38,9 @@ class AccueilControleur
                 case "connexion":
                     require($vue['connexion']);
                     break;
+                case "detail":
+                    $detailArticle = $this->articleG->findDetailByDateTitre($_REQUEST['dateArticle'], $_REQUEST['titreArticle']);
+                    require($vue['article']);
                 default:
                     $dVueErreur[] = "Erreur d'appel php";
                     require($vue['erreur']);
@@ -46,11 +51,10 @@ class AccueilControleur
         }
     }
 
-    public function findAllArticles($dns, $user, $password)
+    public function findAllArticles(Connection $con)
     {
         global $vue;
-        $this->con = new Connection($dns, $user, $password);
-        $articleG = new ArticleGateway($this->con);
+        $articleG = new ArticleGateway($con);
         $lesArticles = $articleG->findAllA();
         require($vue['accueil']);
     }

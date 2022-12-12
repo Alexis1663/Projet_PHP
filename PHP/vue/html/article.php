@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
     <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/inscription.css">
+    <link rel="stylesheet" href="./vue/css/accueil.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <nav>
 
             <div class="logo">
-                <a href="index.php?page=accueil"><img src="./vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
+                <a href="index.php?page=accueil"><img src="vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
             </div>
 
             <div class="titre">
@@ -46,37 +46,16 @@
 
     <section>
 
-        <div class="big_container">
+        <div class="titre">
+            <h1><?php $detailArticle['titre'] ?></h1>
+        </div>
 
-            <div class="container">
+        <div class="image">
+            <img src="vue/img/<?php $detailArticle['image'] ?>" alt="Image test">
+        </div>
 
-                <div class="element">
-                    <label for="pseudo">Pseudo</label>
-                    <input name="pseudo" type="text">
-                </div>
-
-                <div class="element">
-                    <label for="nom">Nom</label>
-                    <input name="nom" type="text">
-                </div>
-
-                <div class="element">
-                    <label for="prenom">Prénom</label>
-                    <input name="prenom" type="text">
-                </div>
-
-                <div class="element">
-                    <label for="mdp">Mot de passe</label>
-                    <input name="mdp" type="password">
-                </div>
-
-                <div class="element">
-                    <label for="mdp_confirm">Confirmer le mot de passe</label>
-                    <input name="mdp_confirm" type="password">
-                </div>
-
-            </div>
-
+        <div class="description">
+            <h3><?php $detailArticle['contenu'] ?></h3>
         </div>
 
     </section>

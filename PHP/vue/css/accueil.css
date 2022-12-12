@@ -6,17 +6,31 @@ body{
 }
 
 .container_article{
-    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-table,
-td,
-th {
-    border-collapse: collapse;
-    padding: 1em;
-    border: 1px solid red;
+#image{
+    width: 20%;
+    height: 20%;
 }
 
-table{
+.article{
+    display: flex;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+}
+
+.infos p{
+    margin: 0;
+    padding: 0;
+}
+
+form button{
     width: 100%;
+    background-color: #fff;
+    border: none;
 }

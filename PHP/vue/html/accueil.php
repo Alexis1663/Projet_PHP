@@ -12,8 +12,8 @@ include_once('controleur/frontControleur.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
-    <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/accueil.css">
+    <link rel="stylesheet" href="vue/css/header_footer.css">
+    <link rel="stylesheet" href="vue/css/accueil.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@ include_once('controleur/frontControleur.php');
         <nav>
 
             <div class="logo">
-                <a href="index.php?page=accueil"><img src="./vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
+                <a href="index.php?page=accueil"><img src="vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
             </div>
 
             <div class="titre">
@@ -53,26 +53,25 @@ include_once('controleur/frontControleur.php');
     <section>
 
         <div class="container_article">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Titre</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($lesArticles as $req) { ?>
 
-                        <tr>
-                            <td><?= $req['date'] ?></td>
-                            <td><?= $req['titre'] ?></td>
-                            <td><?= $req['image'] ?></td>
-                        </tr>
+            <?php foreach ($lesArticles as $req) { ?>
+                <form action="index.php?page=detail" method="GET">
 
-                    <?php } ?>
-                </tbody>
-            </table>
+                    <button type="submit" name="button">
+                        <div class="article">
+                            <img id="image" src="vue/img/<?= $req['image'] ?>" alt="">
+                            <div class="infos">
+                                <p><?= $req['titre'] ?></p>
+                                <p><?= $req['date'] ?></p>
+                            </div>
+                            <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
+                            <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
+                        </div>
+
+                    </button>
+
+                <?php } ?>
+
         </div>
 
     </section>

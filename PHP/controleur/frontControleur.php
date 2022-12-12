@@ -28,9 +28,6 @@ class FrontControleur
     // Traite une requête entrante
     public function frontRequest()
     {
-        global $vue;
-
-        $lesArticles = $this->ctrlAccueil->findAllArticles();
     }
 
     /* Affiche une erreur
