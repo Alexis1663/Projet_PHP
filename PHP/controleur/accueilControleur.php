@@ -13,12 +13,15 @@ class AccueilControleur
     {
         global $vue;
         $this->con = new Connection($dns, $user, $password);
+
         $this->articleG = new ArticleGateway($this->con);
 
         $dVueErreur = array();
         try {
             if (isset($_GET['page'])) {
+
                 $page = $_REQUEST['page'];
+
             } else {
                 $page = NULL;
             }
@@ -41,6 +44,7 @@ class AccueilControleur
                 case "detail":
                     $detailArticle = $this->articleG->findDetailByDateTitre($_REQUEST['dateArticle'], $_REQUEST['titreArticle']);
                     require($vue['article']);
+
                 default:
                     $dVueErreur[] = "Erreur d'appel php";
                     require($vue['erreur']);

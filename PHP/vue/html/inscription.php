@@ -75,6 +75,11 @@
                     <input name="mdp_confirm" type="password">
                 </div>
 
+                <div class="element">
+                    <input type="submit" name="BOUTON" value="Confirmer" action>
+                </div>
+
+
             </div>
 
         </div>

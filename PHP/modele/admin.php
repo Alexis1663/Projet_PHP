@@ -23,7 +23,6 @@ class Admin extends User
 	public function __setNmbCommentairesEcrits($nmb):int{
 		return $this->nmbCommentairesEcrits=$nmb;
 	}
-
 }
 
 ?>

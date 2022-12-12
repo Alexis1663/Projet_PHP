@@ -47,6 +47,7 @@
     <section>
 
         <div class="titre">
+
             <h1><?php $detailArticle['titre'] ?></h1>
         </div>
 

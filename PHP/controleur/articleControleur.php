@@ -22,7 +22,11 @@ class ArticleControleur
         $lesArticles = $this->articleG->findAllA();
     }
 
-}
+    // Affiche l'article recherché dans le blog
+    public function findArticle($date){
+        $article = $this->articleG->findA($date);
+    }
 
+}
 
 ?>

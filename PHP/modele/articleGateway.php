@@ -48,6 +48,7 @@ class ArticleGateway
         return $results;
     }
 
+
     public function findDetailByDateTitre(DateTime $date, string $titre): array
     {
         $queryfind = "SELECT * FROM Article WHERE date=:date AND titre = :titre";
@@ -93,6 +94,7 @@ class ArticleGateway
     }
 
     /**
+
      * delete an article
      *
      * @param $id : primary key of an article
