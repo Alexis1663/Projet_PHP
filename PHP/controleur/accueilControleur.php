@@ -25,10 +25,10 @@ class AccueilControleur
 
             switch ($page) {
                 case NULL:
-                    $this->findAllArticles($dns, $user, $password);
+                    $this->findAllArticles($this->con);
                     break;
                 case 'accueil':
-                    $this->findAllArticles($dns, $user, $password);
+                    $this->findAllArticles($this->con);
                     break;
                 case "inscription":
                     require($vue['inscription']);
@@ -46,11 +46,10 @@ class AccueilControleur
         }
     }
 
-    public function findAllArticles($dns, $user, $password)
+    public function findAllArticles(Connection $con)
     {
         global $vue;
-        $this->con = new Connection($dns, $user, $password);
-        $articleG = new ArticleGateway($this->con);
+        $articleG = new ArticleGateway($con);
         $lesArticles = $articleG->findAllA();
         require($vue['accueil']);
     }

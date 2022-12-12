@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./vue/css/header_footer.css">
     <link rel="stylesheet" href="./vue/css/accueil.css">
 </head>
+
 <body>
 
     <!-- Début de l'entête de page -->
@@ -17,7 +19,7 @@
         <nav>
 
             <div class="logo">
-                <a href="index.php?page=accueil"><img src="./vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
+                <a href="index.php?page=accueil"><img src="vue/img/logo_cournontt.png" alt="logo_cournontt"></a>
             </div>
 
             <div class="titre">
@@ -40,32 +42,32 @@
 
     </header>
 
-<!-- Début du corp de code -->
+    <!-- Début du corp de code -->
 
     <section>
 
         <div class="titre">
-            <h1>TITRE TEST</h1>    
+            <h1>TITRE TEST</h1>
         </div>
 
         <div class="image">
-            <img src="cbidbc.png" alt="Image test"> 
+            <img src="cbidbc.png" alt="Image test">
         </div>
 
         <div class="description">
             <h3>Ceci est la description du test</h3>
         </div>
-    
+
     </section>
 
     <!-- Début du pied de page -->
 
     <footer>
 
-		<div class="footer">
-			<p>CL COURNON TT</p>
-			<p>exemple@exemple.fr</p>
-		</div>
+        <div class="footer">
+            <p>CL COURNON TT</p>
+            <p>exemple@exemple.fr</p>
+        </div>
 
     </footer>
 

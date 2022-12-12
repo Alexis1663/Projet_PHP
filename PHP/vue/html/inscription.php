@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
     <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/accueil.css">
+    <link rel="stylesheet" href="./vue/css/inscription.css">
 </head>
+
 <body>
 
     <!-- Début de l'entête de page -->
@@ -40,53 +42,60 @@
 
     </header>
 
-<!-- Début du corp de code -->
+    <!-- Début du corp de code -->
 
     <section>
 
-        <div class="container">
+        <div class="big_container">
 
-            <div class="element">
-                <label for="pseudo">Pseudo</label>
-                <input name="pseudo" type="text">
-            </div>
-            
-            <div class="element">
-                <label for="nom">Nom</label>
-                <input name="nom" type="text">
-            </div>
+            <div class="container">
 
-            <div class="element">
-                <label for="prenom">Prénom</label>
-                <input name="prenom" type="text">
-            </div>
+                <div class="element">
+                    <label for="pseudo">Pseudo</label>
+                    <input name="pseudo" type="text">
+                </div>
 
-            <div class="element">
-                <label for="mdp">Mot de passe</label>
-                <input name="mdp" type="password">
-            </div>
+                <div class="element">
+                    <label for="nom">Nom</label>
+                    <input name="nom" type="text">
+                </div>
 
-            <div class="element">
-                <label for="mdp_confirm">Confirmer le mot de passe</label>
-                <input name="mdp_confirm" type="password">
+                <div class="element">
+                    <label for="prenom">Prénom</label>
+                    <input name="prenom" type="text">
+                </div>
+
+                <div class="element">
+                    <label for="mdp">Mot de passe</label>
+                    <input name="mdp" type="password">
+                </div>
+
+                <div class="element">
+                    <label for="mdp_confirm">Confirmer le mot de passe</label>
+                    <input name="mdp_confirm" type="password">
+                </div>
+
+                <div class="element">
+                    <input type="submit" name="BOUTON" value="Confirmer" action>
+                </div>
+
             </div>
 
         </div>
-    
+
     </section>
 
     <!-- Début du pied de page -->
 
     <footer>
 
-		<div class="footer">
-			<p>CL COURNON TT</p>
-			<p>exemple@exemple.fr</p>
-		</div>
+        <div class="footer">
+            <p>CL COURNON TT</p>
+            <p>exemple@exemple.fr</p>
+        </div>
 
     </footer>
 
 </body>
 
 </html>
-

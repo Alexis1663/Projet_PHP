@@ -12,8 +12,8 @@ include_once('controleur/frontControleur.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
-    <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/accueil.css">
+    <link rel="stylesheet" href="vue/css/header_footer.css">
+    <link rel="stylesheet" href="vue/css/accueil.css">
 </head>
 
 <body>
@@ -54,25 +54,6 @@ include_once('controleur/frontControleur.php');
 
         <div class="container_article">
 
-            <?php foreach ($lesArticles as $req) { ?>
-
-                <form action="article.php" method="POST" class="form">
-                    <button type="submit" class="button_detail" name="form_detail">
-                        <div class="fromage">
-                            <div class="article">
-                                <h1><?= $req['date'] ?></h1>
-                                <h1><?= $req['titre'] ?></h1>
-                            </div>
-                            <i class="fa-regular fa-star"></i>
-                            <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
-                            <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
-                            <?php echo '<img src="../img/' . $req['image'] . '" alt="Image de ' . $req['image'] . '">' ?>
-                        </div>
-                    </button>
-                </form>
-
-            <?php } ?>
-
             <table>
                 <thead>
                     <tr>
@@ -85,9 +66,15 @@ include_once('controleur/frontControleur.php');
                     <?php foreach ($lesArticles as $req) { ?>
 
                         <tr>
-                            <td><?= $req['date'] ?></td>
-                            <td><?= $req['titre'] ?></td>
-                            <td><?= $req['image'] ?></td>
+
+                            <form action="article.php">
+                                <td><?= $req['date'] ?></td>
+                                <td><?= $req['titre'] ?></td>
+                                <td><img id="image" src="vue/img/<?= $req['image'] ?>" alt=""></td>
+                                <input type="hidden" name="dateArticle" value="<?= $req['date'] ?>">
+                                <input type="hidden" name="titreArticle" value="<?= $req['titre'] ?>">
+                            </form>
+
                         </tr>
 
                     <?php } ?>

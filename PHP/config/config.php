@@ -6,12 +6,14 @@ $rep = __DIR__ . '/../';
 
 //BDD
 
-//$user = "lobroda";
-//$password = "achanger";
+$user = "lobroda";
+$password = "achanger";
+$dns = "mysql:host=localhost;dbname=dblobroda";
 
-$user = "root";
-$password = "Root-linux63";
-$dns = "mysql:host=localhost;dbname=projet_php";
+
+//$user = "root";
+//$password = "Root-linux63";
+//$dns = "mysql:host=localhost;dbname=projet_php";
 
 
 //Vues
