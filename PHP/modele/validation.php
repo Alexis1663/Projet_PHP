@@ -3,12 +3,28 @@
 
 class Validation
 {
+
+    /**
+    * clean a string
+    *
+    * @param $str : string to clean
+    *
+    * @return string : new string cleaned
+    **/
     public static function cleanString(string $str)
     {
 
         return filter_var($str, FILTER_SANITIZE_STRING);
     }
 
+    /**
+    * check the validity of the connecting form
+    *
+    * @param $login : login renseigned in the form
+    * @param $mot_de_passe : password renseigned in the form
+    *
+    * @return void
+    **/
     public static function val_form_connexion(string &$login, string &$mot_de_passe)
     {
         $dVueErreur = array();
@@ -34,6 +50,14 @@ class Validation
         return $dVueErreur;
     }
 
+    /**
+    * check the validity of the adding article form
+    *
+    * @param $titre : title renseigned in the form
+    * @param $contenu : content renseigned in the form
+    *
+    * @return void
+    **/
     public static function val_form_ajout_article(string &$titre, string &$contenu)
     {
         $dVueErreur = array();

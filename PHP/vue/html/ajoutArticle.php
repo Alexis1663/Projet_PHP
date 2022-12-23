@@ -54,7 +54,6 @@
                 <label for="image">Image</label>
                 <input name="image" type="file">
 
-
                 <?php
                 foreach ($dVueErreur as $row) {
                     echo '<p style="color: red;">' . $row . '</p>';

@@ -12,6 +12,7 @@ class AccueilControleur
     private $con;
     private $articleG;
 
+    //Controller of a navigation that don't need a connection
     public function __construct($dns, $user, $password)
     {
         global $vue;
@@ -85,6 +86,14 @@ class AccueilControleur
         }
     }
 
+    /**
+    * call the gateway and view to add commentary
+    *
+    * @param $dateArticle : article's date where the commentary need to be add
+    * @param $titreArticle : article's title where the commentary need to be add
+    *
+    * @return void
+    **/
     public function AddCommentaireV1(string $dateArticle, string $titreArticle, array $dVueErreur)
     {
         global $vue;
@@ -92,6 +101,12 @@ class AccueilControleur
         require($vue['commenter']);
     }
 
+
+    /**
+    * recover the informations from the form to add the commentary
+    *
+    * @return void
+    **/
     public function AddCommentaireV2()
     {
         global $vue;
@@ -108,6 +123,13 @@ class AccueilControleur
         }
     }
 
+    /**
+    * find an article with his date
+    *
+    * @param $con : connection to the database
+    *
+    * @return void
+    **/
     public function findArticleByTitre(Connection $con)
     {
         global $vue;
@@ -119,6 +141,13 @@ class AccueilControleur
         }
     }
 
+    /**
+    * find all article to print on the website
+    *
+    * @param $con : connection to the database
+    *
+    * @return void
+    **/
     public function findAllArticles(Connection $con)
     {
         global $vue;
@@ -126,6 +155,15 @@ class AccueilControleur
         return $articleG->findAllA();
     }
 
+
+    /**
+    * allow the connection of an admin
+    *
+    * @param $login : pseudo of the admin wanted to connect
+    * @param $mdp : password of the admin wanted to connect
+    *
+    * @return void
+    **/
     public function connexion()
     {
         $dVueErreur = array();
@@ -136,6 +174,12 @@ class AccueilControleur
         return $dVueErreur;
     }
 
+
+    /**
+    * allow the deconnection of an admin
+    *
+    * @return void
+    **/
     public function deconnexion()
     {
         global $vue;

@@ -11,6 +11,7 @@ class FrontControleur
     //private $ctrlAdmin;
     //private $ctrlUser;
 
+    //Controller that join the action of son's controller
     public function __construct()
     {
         global $rep, $vue, $user, $password, $dns; // pour utiliser les variables globales : le répertoire, les vues, le login, le mot de passe et le dns

@@ -1,10 +1,10 @@
 <?php
 
-//gen
+//Generation of variable
 $rep = __DIR__ . '/../';
 
 
-//BDD
+//Database's informations : to be adapted according your logins
 
 //$user = "lobroda";
 //$password = "achanger";
@@ -15,7 +15,9 @@ $user = "root";
 $password = "Root-linux63";
 $dns = "mysql:host=localhost;dbname=projet_php";
 
-//Vues
+
+//Generation of all views
+
 
 $vue['erreur'] = 'vue/html/erreur.php';
 $vue['accueil'] = 'vue/html/accueil.php';
