@@ -15,7 +15,9 @@ $user = "root";
 $password = "Root-linux63";
 $dns = "mysql:host=localhost;dbname=projet_php";
 
+
 //Generation of all views
+
 
 $vue['erreur'] = 'vue/html/erreur.php';
 $vue['accueil'] = 'vue/html/accueil.php';

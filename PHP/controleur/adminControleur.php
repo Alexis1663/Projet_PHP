@@ -6,7 +6,9 @@ require_once('modele/validation.php');
 require_once('config/config.php');
 
 
+
 //Controller of a navigation for an admin
+
 class AdminControleur
 {
 
@@ -63,6 +65,7 @@ class AdminControleur
             $dVueErreur[] = "Erreur innatendue";
             require($vue['erreur']);
         }
+
     }
 
     /**
@@ -115,11 +118,13 @@ class AdminControleur
         $_SESSION = array();
     }
 
+
     /**
     * check if an user is an admin
     *
     * @return void
     **/
+
     public function isAdmin()
     {
         if (isset($_SESSION['login']) && isset($_SESSION['role'])) {

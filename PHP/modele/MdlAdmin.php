@@ -8,6 +8,7 @@ require_once('modele/validation.php');
 class MdlAdmin
 {
 
+
     /**
     * allow the connection of an admin
     *
@@ -16,6 +17,7 @@ class MdlAdmin
     *
     * @return void
     **/
+
     public function connexion($login, $mdp)
     {
         global $dns, $user, $password;
@@ -26,17 +28,25 @@ class MdlAdmin
         $mdp = Validation::cleanString($mdp);
         $dVueErreur = Validation::val_form_connexion($login, $mdp);
         if (empty($dVueErreur)) {
-            if (password_verify($mdp, $adminG->getCredential($login))) {
-                $_SESSION['role'] = "admin";
-                $_SESSION['login'] = $login;
-                return new Admin($login, $mdp);
+
+            if ($adminG->getCredential($login) != null) {
+                if (password_verify($mdp, $adminG->getCredential($login)[0]['motDePasse'])) {
+                    $_SESSION['role'] = "admin";
+                    $_SESSION['login'] = $login;
+                    return new Admin($login, $mdp);
+                } else {
+                    $dVueErreur[] = "Mot de passe incorrect";
+                    return $dVueErreur;
+                }
             } else {
-                $dVueErreur[] = "Mot de passe incorrect";
+                $dVueErreur[] = "Login ou mot de passe incorrect";
+                return $dVueErreur;
             }
         } else {
             return $dVueErreur;
         }
     }
+
 
     /**
     * allow the deconnection of an admin
@@ -49,6 +59,7 @@ class MdlAdmin
         session_destroy();
         $_SESSION = array();
     }
+
 
     /**
     * check if an user is an admin

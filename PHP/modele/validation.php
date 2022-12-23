@@ -82,6 +82,42 @@ class Validation
         }
         return $dVueErreur;
     }
+
+    public static function val_form_ajout_commentaire(string &$titre, string &$contenu, string &$pseudo)
+    {
+        $dVueErreur = array();
+
+        if (!isset($pseudo) || empty($pseudo)) {
+            $dVueErreur[] = "Vous devez renseigné votre pseudo";
+            $pseudo = "";
+        }
+
+        if ($pseudo != filter_var($pseudo, FILTER_SANITIZE_STRING)) {
+            $dVueErreur[] = "tentative d'injection de code (attaque sécurité)";
+            $pseudo = "";
+        }
+
+        if (!isset($titre) || empty($titre)) {
+            $dVueErreur[] = "Vous devez renseigné un titre au commentaire";
+            $titre = "";
+        }
+
+        if ($titre != filter_var($titre, FILTER_SANITIZE_STRING)) {
+            $dVueErreur[] = "tentative d'injection de code (attaque sécurité)";
+            $titre = "";
+        }
+
+        if (!isset($contenu) || empty($contenu)) {
+            $dVueErreur[] = "Vous devez renseigné du contenu à votre commentaire";
+            $contenu = "";
+        }
+
+        if ($contenu != filter_var($contenu, FILTER_SANITIZE_STRING)) {
+            $dVueErreur[] = "tentative d'injection de code (attaque sécurité)";
+            $contenu = "";
+        }
+        return $dVueErreur;
+    }
 }
 
 ?>

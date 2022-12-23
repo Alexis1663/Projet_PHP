@@ -12,6 +12,7 @@ class Article
     private int $nmbCommentaires;
     private Admin $redacteur;
 
+
     /**
     * generate a new article
     *
@@ -35,6 +36,7 @@ class Article
         $this->nmbCommentaires = $nmbCommentaires;
         $this->redacteur = $redacteur;
     }
+
 
     /**
     * get the id of the article

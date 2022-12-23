@@ -9,6 +9,7 @@ class AdminGateway
      * generate the admin gateway constructor
      *
      * @param $con : connection's parameters
+
      *
      * @return void
      */
@@ -17,6 +18,7 @@ class AdminGateway
         $this->con = $con;
     }
 
+
     /**
      *  get the id of the article
      *
@@ -24,15 +26,16 @@ class AdminGateway
      *
      * @return string : password of an admin searched
      */
-    public function getCredential(string $pseudo): string
+    public function getCredential(string $pseudo)
     {
         $queryCredentials = "SELECT motDePasse FROM admin WHERE pseudo=:pseudo";
-        if ($this->con->executeQuery($queryCredentials, array(":pseudo" => array($pseudo, PDO::PARAM_STR)))) {
-            return ($this->con->getResults()[0]['motDePasse']);
-        } else {
-            throw new PDOException("ERR : GetCredential !");
-        }
+        $this->con->executeQuery($queryCredentials, array(
+            ":pseudo" => array($pseudo, PDO::PARAM_STR)
+        ));
+        return $this->con->getResults();
     }
+
+
 
     /**
      *  get the information of and admin

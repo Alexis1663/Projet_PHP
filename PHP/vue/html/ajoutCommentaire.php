@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
-    <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/ajoutCommentaire.css">
+    <link rel="stylesheet" href="vue/css/header_footer.css">
+    <link rel="stylesheet" href="vue/css/ajoutCommentaire.css">
 </head>
 
 <body>
@@ -44,21 +44,25 @@
         <h1>Donnez votre avis !!!</h1>
         <form action="index.php?page=ajouterCommentaire" method="POST">
             <div class="container">
+                <label for="pseudo">Pseudo</label>
+                <input name="pseudo" type="text">
 
-                <div class="element">
-                    <label for="pseudo">Pseudo</label>
-                    <input name="pseudo" type="text">
-                </div>
 
-                <div class="element">
-                    <label for="titre">Titre du commentaire</label>
-                    <input name="titre" type="text">
-                </div>
 
-                <div class="element">
-                    <label for="contenu">Contenu</label>
-                    <textarea name="contenu" type="text"></textarea>
-                </div>
+                <label for="titre">Titre du commentaire</label>
+                <input name="titre" type="text">
+
+
+
+                <label for="contenu">Contenu</label>
+                <textarea name="contenu" type="text"></textarea>
+
+
+                <?php
+                foreach ($dVueErreur as $row) {
+                    echo '<p style="color: red;">' . $row . '</p>';
+                }
+                ?>
 
                 <input type="hidden" name="titreArticle" value="<?= $titreArticle ?>">
                 <input type="hidden" name="dateArticle" value="<?= $dateArticle ?>">

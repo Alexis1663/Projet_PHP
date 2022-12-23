@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURNONTT</title>
     <link rel="stylesheet" href="./vue/css/header_footer.css">
-    <link rel="stylesheet" href="./vue/css/connexion.css">
+    <link rel="stylesheet" href="./vue/css/ajoutcommentaire.css">
 </head>
 
 <body>
@@ -44,21 +44,15 @@
 
         <form action="index.php?page=ajouterArticle" method="POST" enctype="multipart/form-data">
             <div class="container">
+                <h1>Ajouter un article</h1>
+                <label for="titre">titre</label>
+                <input name="titre" type="text">
 
-                <div class="element">
-                    <label for="titre">titre</label>
-                    <input name="titre" type="text">
-                </div>
+                <label for="contenu">Contenu</label>
+                <textarea name="contenu" type="text"></textarea>
 
-                <div class="element">
-                    <label for="contenu">Contenu</label>
-                    <textarea name="contenu" type="text"></textarea>
-                </div>
-
-                <div class="element">
-                    <label for="image">Image</label>
-                    <input name="image" type="file">
-                </div>
+                <label for="image">Image</label>
+                <input name="image" type="file">
 
                 <?php
                 foreach ($dVueErreur as $row) {

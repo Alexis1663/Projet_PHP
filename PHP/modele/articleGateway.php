@@ -145,7 +145,7 @@ class ArticleGateway
         ));
     }
 
-    /**
+     /**
      * add a commentary under an article
      *
      * @param $date : publication's date of the commentary 
@@ -159,7 +159,7 @@ class ArticleGateway
      **/    
     public function addCommentaire(string $date, string $titre, string $pseudo, string $contenu, string $dateArticle, string $titreArticle)
     {
-        $queryAdd = 'INSERT INTO Commentaire VALUES (:dateArticle,:titreArticle,:titre,:pseudo,:contenu,:date)';
+        $queryAdd = "INSERT INTO Commentaire VALUES (:dateArticle,:titreArticle,:titre,:pseudo,:contenu,:date)";
         $queryIncrementer = 'UPDATE Article SET nmbCommentaires = nmbCommentaires + 1 WHERE date = :date AND titre = :titre;';
         $this->con->executeQuery($queryAdd, array(
             ':dateArticle' => array($dateArticle, PDO::PARAM_STR),

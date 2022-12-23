@@ -74,8 +74,7 @@ class AccueilControleur
                     require($vue['accueil']);
                     break;
                 case "commenter":
-                    $this->AddCommentaireV1($_REQUEST['dateArticle'], $_REQUEST['titreArticle']);
-                    //$listCommentaire = $this->articleG->findAllCommentaire();
+                    $this->AddCommentaireV1($_REQUEST['dateArticle'], $_REQUEST['titreArticle'], $dVueErreur);
                     break;
                 case "ajouterCommentaire":
                     $this->AddCommentaireV2();
@@ -87,7 +86,6 @@ class AccueilControleur
         }
     }
 
-
     /**
     * call the gateway and view to add commentary
     *
@@ -96,12 +94,13 @@ class AccueilControleur
     *
     * @return void
     **/
-    public function AddCommentaireV1(string $dateArticle, string $titreArticle)
+    public function AddCommentaireV1(string $dateArticle, string $titreArticle, array $dVueErreur)
     {
         global $vue;
         $articleG = new ArticleGateway($this->con);
         require($vue['commenter']);
     }
+
 
     /**
     * recover the informations from the form to add the commentary
@@ -111,11 +110,17 @@ class AccueilControleur
     public function AddCommentaireV2()
     {
         global $vue;
+        $dVueErreur = array();
         $articleG = new ArticleGateway($this->con);
         if (isset($_REQUEST['formulaire_ajout_commentaire'])) {
-            $articleG->addCommentaire(date('Y-m-d'), $_REQUEST['titre'], $_REQUEST['pseudo'], $_REQUEST['contenu'], $_REQUEST['dateArticle'], $_REQUEST['titreArticle']);
+            $dVueErreur = Validation::val_form_ajout_commentaire($_REQUEST['titre'], $_REQUEST['contenu'], $_REQUEST['pseudo']);
+            if (empty($dVueErreur)) {
+                $articleG->addCommentaire(date('Y-m-d'), $_REQUEST['titre'], $_REQUEST['pseudo'], $_REQUEST['contenu'], $_REQUEST['dateArticle'], $_REQUEST['titreArticle']);
+                header("Location: index.php");
+            } else {
+                $this->AddCommentaireV1($_REQUEST['dateArticle'], $_REQUEST['titreArticle'], $dVueErreur);
+            }
         }
-        header('Location: index.php');
     }
 
     /**
@@ -150,6 +155,7 @@ class AccueilControleur
         return $articleG->findAllA();
     }
 
+
     /**
     * allow the connection of an admin
     *
@@ -167,6 +173,7 @@ class AccueilControleur
         }
         return $dVueErreur;
     }
+
 
     /**
     * allow the deconnection of an admin

@@ -44,16 +44,12 @@
 
         <form action="index.php?page=connexion" method="POST">
             <div class="container">
+                <h1>Se connecter</h1>
+                <label for="pseudo">Pseudo</label>
+                <input name="pseudo" type="text">
 
-                <div class="element">
-                    <label for="pseudo">Pseudo</label>
-                    <input name="pseudo" type="text">
-                </div>
-
-                <div class="element">
-                    <label for="mdp">Mot de passe</label>
-                    <input name="mdp" type="password">
-                </div>
+                <label for="mdp">Mot de passe</label>
+                <input name="mdp" type="password">
 
                 <?php
                 foreach ($dVueErreur as $row) {

@@ -14,6 +14,7 @@ class Connection extends PDO
     *
     * @return void
     **/
+
     public function __construct(string $dns, string $username, string $password)
     {
         parent::__construct($dns, $username, $password);

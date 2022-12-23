@@ -7,6 +7,7 @@ class Admin
     private int $nmbCommentairesEcrits;
     private int $nmbArticlesEcrits;
 
+
     /**
     * generate the admin’s constructor
     *
@@ -14,6 +15,7 @@ class Admin
     *
     * @return void
     **/
+
     public function __construct(string $pseudo, string $motDePasse, int $nmbCommentairesEcrits = 0, int $nmbArticlesEcrits = 0)
     {
         $this->pseudo = $pseudo;
@@ -21,6 +23,7 @@ class Admin
         $this->nmbArticlesEcrits = $nmbArticlesEcrits;
         $this->nmbCommentairesEcrits = $nmbArticlesEcrits;
     }
+
 
     /**
     * get the pseudo of the admin
@@ -32,15 +35,18 @@ class Admin
         return $this->pseudo;
     }
 
+
     /**
     * get the number of commentary written by an admin
     *
     * @return int : number of commentary written by an admin
     **/
+
     public function __getNmbCommentaireEcrits(): string
     {
         return $this->nmbCommentairesEcrits;
     }
+
 
     /**
     * get the number of article written by an admin
