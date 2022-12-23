@@ -17,7 +17,9 @@ Sommaire
 
 ### Profiter dès maintenant d'un accès anticipé au site de News du CL Cournon TT
 
-**Accès** : Télécharger le code dans la branche "main" pour avoir le code source du site
+**Accès** : Télécharger le code dans la branche "main" pour avoir le code source du site   
+Importer la base de données à l'aide du fichier 'projet_php.sql' dans la branche "main" sur PHPMyAdmin   
+Pour accéder sur le site au compte de l'administrateur, il faut saisir l'identifiant : alcarreau et le mot de passe : mdp  
 
 > **Warning**: Le site n'est pas encore adapté à une utilisation sur mobile  
 *******
@@ -26,7 +28,7 @@ Sommaire
 
   __EN PROGRESSION__
 
-![](https://geps.dev/progress/60)
+![](https://geps.dev/progress/100)
 
   _Fin du projet prévue :_ Décembre 2022
 
