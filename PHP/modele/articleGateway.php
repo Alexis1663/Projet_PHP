@@ -139,7 +139,12 @@ class ArticleGateway
     public function deleteA(string $date, string $titre)
     {
         $query = 'DELETE FROM Article WHERE date=:date AND titre=:titre';
+        $queryCommentaireAssocie = "DELETE FROM Commentaire WHERE dateArticle=:date AND titreArticle=:titre";
         $this->con->executeQuery($query, array(
+            ':date' => array($date, PDO::PARAM_STR),
+            ':titre' => array($titre, PDO::PARAM_STR)
+        ));
+        $this->con->executeQuery($queryCommentaireAssocie, array(
             ':date' => array($date, PDO::PARAM_STR),
             ':titre' => array($titre, PDO::PARAM_STR)
         ));
