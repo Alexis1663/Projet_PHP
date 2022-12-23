@@ -7,6 +7,15 @@ require_once('modele/validation.php');
 
 class MdlAdmin
 {
+
+    /**
+    * allow the connection of an admin
+    *
+    * @param $login : pseudo of the admin wanted to connect
+    * @param $mdp : password of the admin wanted to connect
+    *
+    * @return void
+    **/
     public function connexion($login, $mdp)
     {
         global $dns, $user, $password;
@@ -29,7 +38,11 @@ class MdlAdmin
         }
     }
 
-
+    /**
+    * allow the deconnection of an admin
+    *
+    * @return void
+    **/
     public function deconnexion()
     {
         session_unset();
@@ -37,6 +50,11 @@ class MdlAdmin
         $_SESSION = array();
     }
 
+    /**
+    * check if an user is an admin
+    *
+    * @return void
+    **/
     public static function isAdmin()
     {
         global $dns, $user, $password;

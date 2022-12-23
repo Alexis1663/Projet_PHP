@@ -8,9 +8,9 @@ class ArticleGateway
     private $con;
 
     /**
-     * generate
+     * generate the article gateway constructor
      *
-     * @param $con 
+     * @param $con : connection's parameters
      *
      * @return void
      */
@@ -22,7 +22,7 @@ class ArticleGateway
     /**
      * find all the article in the database
      *
-     * @return array of article
+     * @return array : array of article
      **/
     public function findAllA(): array
     {
@@ -37,7 +37,7 @@ class ArticleGateway
      *
      * @param $date : publication's date of an article 
      *
-     * @return array of article
+     * @return array : array of article
      **/
     public function findArticleByDate(DateTime $date): array
     {
@@ -47,6 +47,13 @@ class ArticleGateway
         return $results;
     }
 
+    /**
+    * find an article with his title
+    *
+    * @param $titre : title of the article looking for
+    *
+    * @return array : article corresponding to the title given
+    **/
     public function findArticleByTitre(string $titre): array
     {
         $queryfind = "SELECT * FROM Article WHERE titre LIKE :titre";
@@ -54,6 +61,14 @@ class ArticleGateway
         return $this->con->getResults();
     }
 
+    /**
+    * find an article with his title and date
+    *
+    * @param $titre : title of the article looking for
+    * @param $date : date of the article looking for
+    *
+    * @return array : article corresponding to the title given
+    **/
     public function findDetailByDateTitre(string $date, string $titre): array
     {
         $queryfind = "SELECT * FROM Article WHERE date=:date AND titre = :titre";
@@ -115,7 +130,6 @@ class ArticleGateway
     }
 
     /**
-
      * delete an article
      *
      * @param $id : primary key of an article
@@ -131,6 +145,18 @@ class ArticleGateway
         ));
     }
 
+    /**
+     * add a commentary under an article
+     *
+     * @param $date : publication's date of the commentary 
+     * @param $titre : commentary's title
+     * @param $pseudo : pseudo of the commentary's redactor
+     * @param $contenu : commentary's content
+     * @param $dateArticle : date of the article where the commentary is written
+     * @param $titreArticle : title of the article where the commentary is written
+     * 
+     * @return void
+     **/    
     public function addCommentaire(string $date, string $titre, string $pseudo, string $contenu, string $dateArticle, string $titreArticle)
     {
         $queryAdd = 'INSERT INTO Commentaire VALUES (:dateArticle,:titreArticle,:titre,:pseudo,:contenu,:date)';
@@ -150,6 +176,14 @@ class ArticleGateway
         ));
     }
 
+    /**
+    * find all the commentary under an article
+    *
+    * @param $titre : title of the article looking for
+    * @param $date : date of the article looking for
+    *
+    * @return array : list of commentary under an article
+    **/
     public function findAllCommentaire(string $date, string $titre): array
     {
         $queryFindAll = "SELECT * FROM Commentaire WHERE dateArticle=:dateArticle AND titreArticle=:titreArticle";
@@ -161,6 +195,11 @@ class ArticleGateway
         return $results;
     }
 
+    /**
+    * count the total number of commentary on the website
+    *
+    * @return void
+    **/
     public function countCommentaireGlobal()
     {
         $queryFindAll = "SELECT count(*) FROM Commentaire";
@@ -169,6 +208,13 @@ class ArticleGateway
         return $results;
     }
 
+    /**
+    * count the number of commentary written by an user
+    *
+    * @param $pseudo : pseudo of the user searched
+    *
+    * @return void
+    **/
     public function countCommentaireUser(string $pseudo)
     {
         $queryFindAllUser = "SELECT count(*) FROM Commentaire WHERE pseudo=:pseudo";

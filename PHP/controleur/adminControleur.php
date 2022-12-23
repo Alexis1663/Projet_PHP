@@ -5,6 +5,8 @@ require_once('modele/articleGateway.php');
 require_once('modele/validation.php');
 require_once('config/config.php');
 
+
+//Controller of a navigation for an admin
 class AdminControleur
 {
 
@@ -63,7 +65,11 @@ class AdminControleur
         }
     }
 
-    // Ajouter un article au blog
+    /**
+    * add an article on the website
+    *
+    * @return void
+    **/
     public function addArticle()
     {
         $dVueErreur = array();
@@ -84,13 +90,24 @@ class AdminControleur
         return $dVueErreur;
     }
 
-    // Supprimer un article du blog
+    /**
+    * delete an article from the website
+    * @param $date : article's date wanted to be delete
+    * @param $titre : article's title wanted to be delete
+    *
+    * @return void
+    **/
     public function deleteArticle(string $date, string $titre)
     {
 
         $this->articleG->deleteA($date, $titre);
     }
 
+    /**
+    * allow the deconnection of an admin
+    *
+    * @return void
+    **/
     public function deconnexion()
     {
         session_unset();
@@ -98,6 +115,11 @@ class AdminControleur
         $_SESSION = array();
     }
 
+    /**
+    * check if an user is an admin
+    *
+    * @return void
+    **/
     public function isAdmin()
     {
         if (isset($_SESSION['login']) && isset($_SESSION['role'])) {
