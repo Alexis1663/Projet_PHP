@@ -74,8 +74,7 @@ INSERT INTO `article` (`date`, `titre`, `contenu`, `image`, `nmbCommentaires`) V
 ('2022-10-08', 'P1-J2 National & Regional', 'Les resultats des championnats par equipe senior du jour !', '2022-10-08.jpg', 0),
 ('2022-09-24', 'P1-J1 National & Regional', 'Les resultats des championnats par equipe senior du jour !', '2022-09-24.jpg', 0),
 ('2022-09-23', 'P1-J1 Departemental', 'Les resultats des championnats par equipe senior du jour !', '2022-09-23.jpg', 0),
-('2022-11-26', 'P1-J6 National & Regional', 'Les resultats des championnats par equipe senior du jour !', '2022-11-26.jpg', 0),
-('2022-12-22', 'kjrntk', 'kjnkjsfd', '2022-12-22_kjrntk.jpg', 0);
+('2022-11-26', 'P1-J6 National & Regional', 'Les resultats des championnats par equipe senior du jour !', '2022-11-26.jpg', 0);
 
 -- --------------------------------------------------------
 
