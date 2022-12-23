@@ -3,6 +3,7 @@
 
 class Validation
 {
+
     /**
     * clean a string
     *

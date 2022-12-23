@@ -87,6 +87,7 @@ class AccueilControleur
         }
     }
 
+
     /**
     * call the gateway and view to add commentary
     *

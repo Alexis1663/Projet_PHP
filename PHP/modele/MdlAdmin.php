@@ -7,6 +7,7 @@ require_once('modele/validation.php');
 
 class MdlAdmin
 {
+
     /**
     * allow the connection of an admin
     *

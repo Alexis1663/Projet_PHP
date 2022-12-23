@@ -5,6 +5,7 @@ require_once('modele/articleGateway.php');
 require_once('modele/validation.php');
 require_once('config/config.php');
 
+
 //Controller of a navigation for an admin
 class AdminControleur
 {
