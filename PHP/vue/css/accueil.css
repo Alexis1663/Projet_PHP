@@ -1,0 +1,44 @@
+/* Code */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container_article{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#image{
+    width: 10em;
+    height: 10em;
+}
+
+.article{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.container_article_small{
+    padding: 2%;
+    margin: 2%;
+    width: 80%;
+    border: 2px solid black;    
+}
+
+section{
+    text-align: center;
+}
+
+form button{
+    width: 100%;
+    background-color: #fff;
+    border: none;
+}

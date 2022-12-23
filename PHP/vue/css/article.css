@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.parent-container img{
+    width: 10em;
+    height: 10em;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-between;
+    margin: 5%;
+    align-items: center;
+}
+
+.description{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Espace commentaire */
+
+.container_commentaire{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.commentaire{
+    display: flex;
+    width: 70%;
+    margin: 2em;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 2em;
+}
+
+.left{
+    padding-right: 2em;
+}
+
+.sur{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#titreArticle{
+    text-decoration: underline;
+}
